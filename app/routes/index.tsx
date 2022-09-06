@@ -1,4 +1,4 @@
-import { ChooseUs, CoverWorld, Home, Pricing } from '~/components';
+import { ChooseUs, CoverWorld, Footer, Home, Pricing } from '~/components';
 export default function Index() {
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
@@ -6,6 +6,7 @@ export default function Index() {
       <ChooseUs/>
       <CoverWorld/>
       <Pricing/>
+      <Footer/>
     </div>
   );
 }

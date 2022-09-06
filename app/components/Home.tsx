@@ -10,7 +10,7 @@ export default function Home() {
 
         <div className='px-5 bg-white '> <Heading>Get The Most Of Your IPTV Server Today</Heading> </div>
         <div className="py-10"/>
-        <Button colorScheme={'red'} >GET STARTED</Button>
+        <Button colorScheme={'red'} size='lg' >GET STARTED</Button>
     </Box>
   )
 }
