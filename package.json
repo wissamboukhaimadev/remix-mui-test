@@ -10,9 +10,13 @@
     "start": "cross-env NODE_ENV=production node ./server.js"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.9",
+    "@chakra-ui/react": "^2.3.1",
     "@emotion/react": "^11.10.4",
+    "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.3",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.4",
     "@remix-run/express": "^1.7.0",
     "@remix-run/node": "^1.7.0",
     "@remix-run/react": "^1.7.0",
@@ -20,6 +24,7 @@
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.18.1",
+    "framer-motion": "^6.5.1",
     "morgan": "^1.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
