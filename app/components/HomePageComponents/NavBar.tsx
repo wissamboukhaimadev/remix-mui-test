@@ -1,3 +1,4 @@
+import { memo,useEffect,useState } from 'react';
 import {
   Box,
   Flex,
@@ -11,17 +12,38 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { listsUrls } from '~/utils/listUrls';
 import { Link } from '@remix-run/react';
-import React from 'react';
+import { Link as ReactLinkTo } from 'react-scroll'
 
-export default function withAction() {
+const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+};
+
+useEffect(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  return () => {
+      window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
+
+let scrollValueClass;
+
+if(scrollPosition>10 ){
+  scrollValueClass ='shadow-2xl fixed w-screen z-10 -translate-y-16 transition-all ease-in-out duration-500'
+}
+  
 
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+        <Flex h={16} className='duration-500' alignItems={'center'} justifyContent={'space-between'}>
           <HStack spacing={8} alignItems={'center'}>
-          <Box>Logo</Box>
+            <Box>Logo</Box>
           </HStack>
           <Flex alignItems={'center'}>
             <Button variant={'solid'} colorScheme={'teal'} size={'lg'} mr={4}>
@@ -30,7 +52,11 @@ export default function withAction() {
           </Flex>
         </Flex>
       </Box>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box
+        bg={useColorModeValue('gray.100', 'gray.900')}
+        px={4}
+        className={scrollValueClass}
+      >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -40,7 +66,6 @@ export default function withAction() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            
             <HStack
               as={'nav'}
               spacing={4}
@@ -59,21 +84,32 @@ export default function withAction() {
           </Box>
         ) : null}
       </Box>
+      
     </>
   );
-}
+};
 
 const NavigationLinks: React.FC = () => {
   return (
     <ul className="list-none flex ">
       {listsUrls.map((item, index) => {
-        return (
-          <Link to={item.link} key={index} className="px-5 cursor-pointer">
-            {' '}
-            {item.name}{' '}
-          </Link>
-        );
-      })}
+        if(item.type==='internal'){
+          return (
+            <ReactLinkTo to={item.name} smooth key={index} className="px-5 cursor-pointer">
+              {' '}
+              {item.name}{' '}
+            </ReactLinkTo>
+          );
+        }else{
+          return (
+            <Link to={item.link} key={index} className="px-5 cursor-pointer">
+              {' '}
+              {item.name}{' '}
+            </Link>
+          );
+        }
+  })}
     </ul>
   );
 };
+export default memo(NavigationBar);

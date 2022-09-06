@@ -1,6 +1,7 @@
 interface UrlsInterface{
     name:string,
-    link:string
+    link:string,
+    type?:string
 }
 
 export const listsUrls:UrlsInterface[] = [
@@ -15,6 +16,7 @@ export const listsUrls:UrlsInterface[] = [
     {
       name: 'Pricing',
       link: '/pricing',
+      
     },
     {
       name: 'FAQ',
@@ -22,6 +24,6 @@ export const listsUrls:UrlsInterface[] = [
     },
     {
       name: 'Contact Us',
-      link: '/contact',
+      link: '/',
     },
   ];

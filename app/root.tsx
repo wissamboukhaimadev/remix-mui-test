@@ -14,7 +14,7 @@ import {
 import { MetaFunction, LinksFunction } from '@remix-run/node'; // Depends on the runtime you choose
 import styles from './styles/app.css';
 import { ServerStyleContext, ClientStyleContext } from './context';
-import NavBar from './components/NavBar';
+import NavBar from './components/HomePageComponents/NavBar';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',

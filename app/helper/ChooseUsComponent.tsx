@@ -1,11 +1,12 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 
-export default function ChooseUsComponents() {
+
+export default function ChooseUsComponents({title,text,children}:any) {
   return (
-    <Box maxW="sm" overflow="hidden">
+    <Box maxW="sm" overflow="hidden" className="hover:shadow-lg hover:bg-yellow-100 cursor-pointer transition-all">
     <div className="flex justify-center ">
-      <SupportAgentIcon sx={{ fontSize: '8rem' }} />
+      {children}
     </div>
 
     <Box p="6">
@@ -17,8 +18,9 @@ export default function ChooseUsComponents() {
         noOfLines={1}
       ></Box>
       <Heading className="text-center" size="md">
-        Great User Experience With Awesome Support
+        {title}
       </Heading>
+      <Text className="pt-4 text-center " fontSize='md' >{text}</Text>
     </Box>
   </Box>
   )
