@@ -95,7 +95,7 @@ const NavigationLinks: React.FC = () => {
       {listsUrls.map((item, index) => {
         if(item.type==='internal'){
           return (
-            <ReactLinkTo to={item.name} smooth key={index} className="px-5 cursor-pointer">
+            <ReactLinkTo to='footer' smooth key={index} className="px-5 cursor-pointer">
               {' '}
               {item.name}{' '}
             </ReactLinkTo>

@@ -1,8 +1,14 @@
 import { memo } from 'react';
 import { Box, Button, Heading, Highlight } from '@chakra-ui/react';
-
+import { useNavigate } from '@remix-run/react'
 const Home = () => {
-  console.log('rendering Home');
+
+  const navigate=useNavigate()
+  
+
+  const navigateToPricingPage=()=>{
+    navigate('/pricing')
+  }
 
   return (
     <Box
@@ -28,9 +34,10 @@ const Home = () => {
         </Heading>{' '}
       </div>
       <div className="py-10" />
-      <Button colorScheme={'red'} size="lg">
-        GET STARTED
-      </Button>
+
+        <Button onClick={navigateToPricingPage} colorScheme={'red'} size="lg">
+          GET STARTED
+        </Button>
     </Box>
   );
 };

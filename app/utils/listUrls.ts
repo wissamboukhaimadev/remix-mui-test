@@ -24,6 +24,7 @@ export const listsUrls:UrlsInterface[] = [
     },
     {
       name: 'Contact Us',
-      link: '/',
+      link: '#footer',
+      type:'internal'
     },
   ];

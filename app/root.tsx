@@ -10,11 +10,15 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  useLocation,
 } from '@remix-run/react';
 import { MetaFunction, LinksFunction } from '@remix-run/node'; // Depends on the runtime you choose
 import styles from './styles/app.css';
 import { ServerStyleContext, ClientStyleContext } from './context';
 import NavBar from './components/HomePageComponents/NavBar';
+import { AnimatePresence, motion } from 'framer-motion';
+import rootstyles from './root.css'
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -25,6 +29,7 @@ export const meta: MetaFunction = () => ({
 export let links: LinksFunction = () => {
   return [
     { rel: 'stylesheet', href: styles },
+    { rel: 'stylesheet', href: rootstyles },
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
     {
@@ -97,7 +102,26 @@ export default function App() {
     <Document>
       <ChakraProvider theme={theme}>
         <NavBar />
-        <Outlet />
+        <AnimatePresence exitBeforeEnter initial={false}>
+          <motion.div
+            key={useLocation().pathname}
+            initial={{ x: '-10%', opacity: 0 }}
+            animate={{ x: '0', opacity: 1 }}
+            exit={{ y: '-10%', opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <a
+            id='footer'
+              href="https://wa.me/212615287447"
+              className="whatsapp_float"
+              target="_blank"
+            >
+              {' '}
+              <WhatsAppIcon sx={{fontSize:'2rem'}} className='whatsapp-icon'/>
+            </a>
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </ChakraProvider>
     </Document>
   );
