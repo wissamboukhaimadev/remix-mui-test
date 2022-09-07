@@ -127,6 +127,7 @@ export default function App() {
   );
 }
 
+
 // Typescript
 // This will return cookies
 // export const loader: LoaderFunction = async ({ request }) => {

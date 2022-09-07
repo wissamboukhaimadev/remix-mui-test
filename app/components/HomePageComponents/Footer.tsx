@@ -5,14 +5,15 @@ import {
   Container,
   SimpleGrid,
   Stack,
-  Link,
+  
   Text,
   VisuallyHidden,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-
+import { listsUrls } from '~/utils/listUrls';
+import { Link } from '@remix-run/react';
 
 const SocialButton = ({
   children,
@@ -54,15 +55,13 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
   );
 };
 
-
-
-const Footer=()=> {
+const Footer = () => {
   console.log('rendering LargeWithNewsletter');
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}
-      id='footer'
+      id="footer"
     >
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
@@ -98,15 +97,22 @@ const Footer=()=> {
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Company</ListHeader>
-            <Link href={'/'}>Home</Link>
-            <Link href={'/tutorial'}>Tutorial</Link>
-            <Link href={'/pricing'}>Pricing</Link>
-            <Link href={'/faq'}>FAQ</Link>
-            <Link href={'/'}>ContactUs</Link>
+            {listsUrls.map((item, index) => {
+              return (
+                <Link
+                  to={item.link}
+                  key={index}
+                  className="px-5 cursor-pointer"
+                >
+                  {' '}
+                  {item.name}{' '}
+                </Link>
+              );
+            })}
           </Stack>
         </SimpleGrid>
       </Container>
     </Box>
   );
-}
-export default memo(Footer)
+};
+export default memo(Footer);
