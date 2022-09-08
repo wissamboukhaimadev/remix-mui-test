@@ -7,7 +7,6 @@ import WindPowerIcon from '@mui/icons-material/WindPower';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 
 const ChooseUs = () => {
-  console.log('rendering ChooseUs');
   return (
     <section>
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">

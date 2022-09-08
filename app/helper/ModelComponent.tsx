@@ -9,16 +9,18 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useDisclosure,
 } from '@chakra-ui/react';
 import PayPalButtonComponent from '~/payments/paypal/PayPalButtonComponent';
+import { PricingListInterface } from '~/utils/pricingList';
 
 interface isOpenInterface {
   isOpen: boolean;
   onClose: () => void;
+  item: PricingListInterface
 }
 
 const ModelComponent = (props: isOpenInterface) => {
+  const { item } = props
   return (
     <>
       <Modal isOpen={props.isOpen} onClose={props.onClose}>
@@ -34,17 +36,17 @@ const ModelComponent = (props: isOpenInterface) => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text fontWeight="bold" mb="1rem">
-              You can scroll the content behind the modal
+            <Text fontWeight="bold" className='text-center' mb="1rem">
+              We are using Paypal
             </Text>
-            <PayPalButtonComponent />
+            <PayPalButtonComponent item={item} />
           </ModalBody>
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={props.onClose}>
-              Close
+              Cancel
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
+
           </ModalFooter>
         </ModalContent>
       </Modal>

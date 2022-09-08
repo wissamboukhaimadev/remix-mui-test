@@ -9,6 +9,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
   useLocation,
 } from '@remix-run/react';
 import { MetaFunction, LinksFunction } from '@remix-run/node'; // Depends on the runtime you choose
@@ -18,6 +19,7 @@ import NavBar from './components/HomePageComponents/NavBar';
 import { AnimatePresence, motion } from 'framer-motion';
 import rootstyles from './root.css'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -96,32 +98,42 @@ const colors = {
 const theme = extendTheme({ colors });
 // const cookies = useLoaderData()
 
+export const loader = async () => {
+  const client_paypal = process.env.CLIENT_PAYPAL
+  return {
+    envVar: client_paypal
+  }
+};
+
 export default function App() {
+  const data = useLoaderData()
   return (
     <Document>
-      <ChakraProvider theme={theme}>
-        <NavBar />
-        <AnimatePresence exitBeforeEnter initial={false}>
-          <motion.div
-            key={useLocation().pathname}
-            initial={{ x: '-10%', opacity: 0 }}
-            animate={{ x: '0', opacity: 1 }}
-            exit={{ y: '-10%', opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <a
-              id='footer'
-              href="https://wa.me/212615287447"
-              className="whatsapp_float"
-              target="_blank"
+      <PayPalScriptProvider options={{ "client-id": data.envVar }}>
+        <ChakraProvider theme={theme}>
+          <NavBar />
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <motion.div
+              key={useLocation().pathname}
+              initial={{ x: '-10%', opacity: 0 }}
+              animate={{ x: '0', opacity: 1 }}
+              exit={{ y: '-10%', opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              {' '}
-              <WhatsAppIcon sx={{ fontSize: '2rem' }} className='whatsapp-icon' />
-            </a>
-            <Outlet />
-          </motion.div>
-        </AnimatePresence>
-      </ChakraProvider>
+              <a
+                id='footer'
+                href="https://wa.me/212615287447"
+                className="whatsapp_float"
+                target="_blank"
+              >
+
+                <WhatsAppIcon sx={{ fontSize: '2rem' }} className='whatsapp-icon' />
+              </a>
+              <Outlet />
+            </motion.div>
+          </AnimatePresence>
+        </ChakraProvider>
+      </PayPalScriptProvider>
     </Document>
   );
 }

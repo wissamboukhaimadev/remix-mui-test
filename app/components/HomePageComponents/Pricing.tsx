@@ -1,6 +1,5 @@
-import { useDisclosure } from '@chakra-ui/react';
 import React, { memo } from 'react'
-import { ModelComponent, PricingComponent } from '~/helper';
+import { PricingComponent } from '~/helper';
 import { pricingList } from '~/utils/pricingList';
 
 const Pricing: React.FC = () => {
