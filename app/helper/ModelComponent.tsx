@@ -11,6 +11,7 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
+import PayPalButtonComponent from '~/payments/paypal/PayPalButtonComponent';
 
 interface isOpenInterface {
   isOpen: boolean;
@@ -36,7 +37,7 @@ const ModelComponent = (props: isOpenInterface) => {
             <Text fontWeight="bold" mb="1rem">
               You can scroll the content behind the modal
             </Text>
-            jskdlskldklaklksldklaklsklkl
+            <PayPalButtonComponent />
           </ModalBody>
 
           <ModalFooter>

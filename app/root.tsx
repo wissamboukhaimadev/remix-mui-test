@@ -9,7 +9,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
   useLocation,
 } from '@remix-run/react';
 import { MetaFunction, LinksFunction } from '@remix-run/node'; // Depends on the runtime you choose
@@ -111,13 +110,13 @@ export default function App() {
             transition={{ duration: 0.3 }}
           >
             <a
-            id='footer'
+              id='footer'
               href="https://wa.me/212615287447"
               className="whatsapp_float"
               target="_blank"
             >
               {' '}
-              <WhatsAppIcon sx={{fontSize:'2rem'}} className='whatsapp-icon'/>
+              <WhatsAppIcon sx={{ fontSize: '2rem' }} className='whatsapp-icon' />
             </a>
             <Outlet />
           </motion.div>
@@ -126,12 +125,3 @@ export default function App() {
     </Document>
   );
 }
-
-
-// Typescript
-// This will return cookies
-// export const loader: LoaderFunction = async ({ request }) => {
-//   // first time users will not have any cookies and you may not return
-//   // undefined here, hence ?? is necessary
-//     return request.headers.get("cookie") ?? ''
-//   };

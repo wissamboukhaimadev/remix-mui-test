@@ -5,7 +5,6 @@ import {
   Container,
   SimpleGrid,
   Stack,
-  
   Text,
   VisuallyHidden,
   useColorModeValue,
@@ -72,15 +71,18 @@ const Footer = () => {
             <Box>
               <div className="py-2" />
               <Text fontSize={'md'}>
-                {' '}
                 <span className="font-bold">Email :</span>{' '}
                 <span className="text-red-400">admi@gmail.com</span>{' '}
               </Text>
               <div className="py-2  " />
               <Text fontSize={'md'}>
-                {' '}
-                <span className="font-bold">PhoneNumber :</span>{' '}
-                <span className="text-red-400">87632764689</span>{' '}
+                <span className="font-bold">PhoneNumber1 :</span>
+                <span className="text-red-400 pl-1"> 87632764689</span>
+              </Text>
+              <div className="py-2  " />
+              <Text fontSize={'md'}>
+                <span className="font-bold">PhoneNumber2 :</span>
+                <span className="text-red-400 pl-1">87632764689</span>
               </Text>
             </Box>
             <Stack direction={'row'} spacing={6}>
@@ -104,7 +106,6 @@ const Footer = () => {
                   key={index}
                   className="px-5 cursor-pointer"
                 >
-                  {' '}
                   {item.name}{' '}
                 </Link>
               );
