@@ -58,6 +58,8 @@ const PayPalButtonComponent = (props: PaypalButtonPropsInterface) => {
 
 
     const baseUrl = 'https://nestjs-iptv.onrender.com'
+    alert('hello')
+    alert(baseUrl)
 
 
     const addPayedUser = async () => {
