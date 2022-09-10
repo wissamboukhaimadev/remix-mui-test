@@ -14,7 +14,7 @@ export default function PricingComponent(props: PropsType) {
     <div className="shadow-xl hover:shadow-2xl flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100  xl:p-8 darkl;l:bg-gray-800 darkl;l:text-white hover:scale-105 transition">
       <ModelComponent isOpen={isOpen} onClose={onClose} item={item} />
 
-      <h3 className="mb-4 text-2xl font-semibold bg-red-200 p-5 font-semibold">{item.duration}</h3>
+      <h3 className="mb-4 text-2xl font-semibold bg-red-200 p-5">{item.duration}</h3>
       {/* <p className="font-light text-gray-500 sm:text-lg ">
         Best option for personal use & for your next project.
       </p> */}
@@ -28,7 +28,7 @@ export default function PricingComponent(props: PropsType) {
       <ul role="list" className="mb-8 space-y-4 text-left">
         {details.map((item, index) => {
           return (
-            <li className="flex items-center space-x-3">
+            <li className="flex items-center space-x-3" key={index} >
               <svg
                 className="flex-shrink-0 w-5 h-5 text-green-500 "
                 fill="currentColor"

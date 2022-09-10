@@ -1,6 +1,7 @@
 import {
   Button,
   Highlight,
+  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -42,6 +43,7 @@ const ModelComponent = (props: isOpenInterface) => {
             <PayPalButtonComponent item={item} />
           </ModalBody>
 
+
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={props.onClose}>
               Cancel
@@ -54,3 +56,6 @@ const ModelComponent = (props: isOpenInterface) => {
   );
 };
 export default ModelComponent;
+
+
+
