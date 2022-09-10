@@ -58,8 +58,7 @@ const PayPalButtonComponent = (props: PaypalButtonPropsInterface) => {
 
 
     const baseUrl = 'https://nestjs-iptv.onrender.com'
-    alert('hello')
-    alert(baseUrl)
+
 
 
     const addPayedUser = async () => {
@@ -203,7 +202,7 @@ const ModelSignUpComponent = (props: ModelSignUpComponentInterface) => {
     const result: boolean = expression.test(email);
 
     //axios base Url
-    const axiosBaseUrl = 'http://localhost:4000'
+    const axiosBaseUrl = 'https://nestjs-iptv.onrender.com'
 
     const addingUserWantToPayDB = async () => {
         // Show Loading State When Data Is Moved To DB
