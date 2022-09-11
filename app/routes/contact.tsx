@@ -1,19 +1,19 @@
 import {
-  useColorModeValue,
+  Heading,
+  Text,
 } from '@chakra-ui/react';
-import SimpleCard from '~/components/Contact';
+import { Footer } from '~/components';
+import ContactComponent from '~/components/Contact';
 
 export default function ContactPage() {
   return (
-    <div
-      style={{
-        fontFamily: 'system-ui, sans-serif',
-        lineHeight: '1.4',
-        background: useColorModeValue('gray.50', 'gray.800'),
-      }}
-      className="flex justify-center items-center min-h-screen"
-    >
-      <SimpleCard />
+    <div>
+      <div className="p-20 bg-blue-300 j">
+        <Heading className="text-center">Contact</Heading>
+        <Text className="text-center" fontSize='md'>Contact Info</Text>
+      </div>
+      <ContactComponent />
+      <Footer />
     </div>
   );
 }

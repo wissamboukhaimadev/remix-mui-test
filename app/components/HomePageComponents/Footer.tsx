@@ -8,6 +8,7 @@ import {
   Text,
   VisuallyHidden,
   useColorModeValue,
+  Heading,
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
@@ -69,6 +70,7 @@ const Footer = () => {
         >
           <Stack spacing={6}>
             <Box>
+              <Heading size='xl' > <span className='px-2 pt-2 text-white' style={{ backgroundColor: '#CC1EB9' }} >V</span> IP IPTV</Heading>
               <div className="py-2" />
               <Text fontSize={'md'}>
                 <span className="font-bold">Email :</span>{' '}
@@ -98,7 +100,6 @@ const Footer = () => {
             </Stack>
           </Stack>
           <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
             {listsUrls.map((item, index) => {
               return (
                 <Link

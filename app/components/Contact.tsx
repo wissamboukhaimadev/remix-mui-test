@@ -1,65 +1,23 @@
-import {
-  Flex,
-  Box,
-  FormControl,
-  FormLabel,
-  Input,
-  Checkbox,
-  Stack,
-  Link,
-  Button,
-  Heading,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Fragment } from 'react'
+import { Heading, Highlight } from "@chakra-ui/react";
+import { whatsappNumbers } from '~/utils/whatsappNumbers'
 
-export default function SimpleCard() {
+
+export default function ContactComponent() {
   return (
-    <Flex minH={'100vh'} align={'center'} justify={'center'}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>ContactUs Right Now </Heading>
-          <Text fontSize={'lg'} color={'gray.600'}>
-            to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
-          </Text>
-        </Stack>
-        <Box
-          rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
-          boxShadow={'lg'}
-          p={8}
-        >
-          <Stack spacing={4}>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: 'column', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}
-              >
-                <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.400'}>Forgot password?</Link>
-              </Stack>
-              <Button
-                bg={'blue.400'}
-                color={'white'}
-                _hover={{
-                  bg: 'blue.500',
-                }}
-              >
-                Sign in
-              </Button>
-            </Stack>
-          </Stack>
-        </Box>
-      </Stack>
-    </Flex>
+    <div className="pt-10">
+
+      <Heading className="text-center font-bold" >We're known From our fast Response. Contact Us Right Now</Heading>
+      <Heading as='h2' size='lg' className='text-center pt-5'>You Can Contact Our Support Team Via <Highlight query='Whatsapp' styles={{ px: '2', py: '1', rounded: 'full', bg: 'teal.100' }}>Whatsapp</Highlight></Heading>
+      {whatsappNumbers.map(item => {
+        return (
+          <Fragment key={item.name} >
+            <Heading size='md' className='text-center m-5'>
+              <Highlight query={['rachid', 'boujmaa']} styles={{ px: '2', py: '1', rounded: 'full', bg: 'orange.100' }}>{item.name}</Highlight> : {item.number}
+            </Heading>
+          </Fragment>
+        )
+      })}
+    </div>
   );
 }

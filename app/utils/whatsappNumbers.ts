@@ -4,6 +4,6 @@ interface PhoneInterface {
 }
 
 export const whatsappNumbers: PhoneInterface[] = [
-    { number: '218789771', name: 'rachid' },
-    { number: '7382773847', name: 'boujmaaa' },
+    { number: '218789771', name: 'Rachid' },
+    { number: '7382773847', name: 'Boujmaa' },
 ]

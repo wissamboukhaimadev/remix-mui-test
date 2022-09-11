@@ -256,27 +256,34 @@ const ModelSignUpComponent = (props: ModelSignUpComponentInterface) => {
 
 
             {loading && (
-                <Spinner
-                    thickness='4px'
-                    speed='0.65s'
-                    emptyColor='gray.200'
-                    color='blue.500'
-                    size='xl'
-                />
+                <div className='flex justify-center' >
+                    <Spinner
+                        thickness='4px'
+                        speed='0.65s'
+                        emptyColor='gray.200'
+                        color='blue.500'
+                        size='xl'
+                    />
+                </div>
             )}
-            <Input className='mb-2' placeholder="name" type='text' value={username} onChange={(e) => setUserState({ ...userState, username: e.target.value })} />
-            <Input className='mb-2' placeholder="email" type='email' value={email} onChange={(e) => setUserState({ ...userState, email: e.target.value })} />
-            <Input className='mb-2' placeholder="phonenumber" type='text' value={phonenumber} onChange={(e) => setUserState({ ...userState, phonenumber: e.target.value })} />
+            {!loading && (
+                <div>
+                    <Input className='mb-2' placeholder="name" type='text' value={username} onChange={(e) => setUserState({ ...userState, username: e.target.value })} />
+                    <Input className='mb-2' placeholder="email" type='email' value={email} onChange={(e) => setUserState({ ...userState, email: e.target.value })} />
+                    <Input className='mb-2' placeholder="phonenumber" type='text' value={phonenumber} onChange={(e) => setUserState({ ...userState, phonenumber: e.target.value })} />
 
-            <div className='flex justify-center'>
-                <Button colorScheme={'teal'} onClick={handleCompleteOrder} >Complete Order</Button>
-            </div>
+                    <div className='flex justify-center'>
+                        <Button colorScheme={'teal'} onClick={handleCompleteOrder} >Complete Order</Button>
+                    </div>
 
 
-            <>
-                <Text className='text-red-500'> {userErrors.email} </Text>
-                <Text className='text-red-500'> {userErrors.username} </Text>
-            </>
+                    <>
+                        <Text className='text-red-500'> {userErrors.email} </Text>
+                        <Text className='text-red-500'> {userErrors.username} </Text>
+                    </>
+                </div>
+            )
+            }
 
 
         </div>

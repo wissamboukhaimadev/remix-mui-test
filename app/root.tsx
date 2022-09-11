@@ -23,13 +23,14 @@ import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  title: 'New Remix App',
+  title: 'VIP IPTV',
   viewport: 'width=device-width,initial-scale=1',
 });
 
 export let links: LinksFunction = () => {
   return [
     { rel: 'stylesheet', href: styles },
+    { rel: 'icon', href: '/assets/Delux-IPTV.png', type: 'image/png' },
     { rel: 'stylesheet', href: rootstyles },
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
@@ -120,7 +121,7 @@ export default function App() {
               exit={{ y: '-10%', opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <a
+              {/* <a
                 id='footer'
                 href="https://wa.me/212615287447"
                 className="whatsapp_float"
@@ -128,7 +129,7 @@ export default function App() {
               >
 
                 <WhatsAppIcon sx={{ fontSize: '2rem' }} className='whatsapp-icon' />
-              </a>
+              </a> */}
               <Outlet />
             </motion.div>
           </AnimatePresence>

@@ -3,7 +3,7 @@ import { Footer, Tutorial } from '~/components';
 
 export default function tutorial() {
   return (
-    <section >
+    <main>
       <div className='mb-20'>
         <div className="pb-20">
           <div className="p-20 bg-blue-300 j">
@@ -22,6 +22,6 @@ export default function tutorial() {
         </div>
       </div>
       <Footer />
-    </section>
+    </main>
   );
 }
