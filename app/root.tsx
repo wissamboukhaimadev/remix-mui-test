@@ -110,7 +110,7 @@ export default function App() {
   const data = useLoaderData()
   return (
     <Document>
-      <PayPalScriptProvider options={{ "client-id": "AQZqAh4sZcx4zPdD-_2jf3wM9fWNoJfvxpqjCQLUNZn0FPgBJLKj8bw-RoYHXAuPYDCoi_vRKdC96vO5" }}>
+      <PayPalScriptProvider options={{ "client-id": data.envVar }}>
         <ChakraProvider theme={theme}>
           <NavBar />
           <AnimatePresence exitBeforeEnter initial={false}>

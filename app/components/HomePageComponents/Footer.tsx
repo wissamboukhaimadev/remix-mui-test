@@ -79,12 +79,12 @@ const Footer = () => {
               <div className="py-2  " />
               <Text fontSize={'md'}>
                 <span className="font-bold">PhoneNumber1 :</span>
-                <span className="text-red-400 pl-1"> 87632764689</span>
+                <span className="text-red-400 pl-1"> +212662131756</span>
               </Text>
               <div className="py-2  " />
               <Text fontSize={'md'}>
                 <span className="font-bold">PhoneNumber2 :</span>
-                <span className="text-red-400 pl-1">87632764689</span>
+                <span className="text-red-400 pl-1">+212700143122</span>
               </Text>
             </Box>
             <Stack direction={'row'} spacing={6}>

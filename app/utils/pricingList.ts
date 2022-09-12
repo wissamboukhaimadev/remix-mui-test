@@ -38,7 +38,7 @@ const commonDetailsArr = [
 ]
 const pack89dolar = [
     {
-        detail: '+188000 Channels & Movies ',
+        detail: '+88000 Channels & Movies ',
     },
     {
         detail: '	4K / Ultra HD / HD Picture Quality ',
@@ -61,8 +61,6 @@ const pack89dolar = [
     {
         detail: 'No more expensive cable bills'
 
-    }, {
-        detail: 'VoD 80000 Channels'
     }
 ]
 
